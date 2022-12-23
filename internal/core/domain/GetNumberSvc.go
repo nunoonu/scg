@@ -74,7 +74,7 @@ func (n Nums) GetPrevious(i int) (*int, int) {
 
 }
 
-func (n Nums) FillValue() Nums {
+func (n Nums) FillValue() {
 
 	for i, v := range n {
 		if v == nil {
@@ -96,7 +96,6 @@ func (n Nums) FillValue() Nums {
 
 		}
 	}
-	return n
 
 }
 

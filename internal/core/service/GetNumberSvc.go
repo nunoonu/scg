@@ -15,7 +15,10 @@ func (c getNumberSvc) Execute(req domain.GetNumberReq) (*domain.GetNumberRes, er
 	_ = req
 
 	nums, alphabets := getNumbers().PrepareModel()
-	if err := nums.FillValue().Validate(); err != nil {
+
+	nums.FillValue()
+
+	if err := nums.Validate(); err != nil {
 		return nil, err
 	}
 
@@ -36,6 +39,6 @@ func buildRes(nums domain.Nums, alphabets []domain.Alphabet) *domain.GetNumberRe
 }
 
 func getNumbers() domain.Strings {
-	return []string{"1", "x", "8", "17", "y", "z", "78", "113"}
-	//return []string{"a", "5", "10", "b", "20", "c", "30", "d", "e"}
+	//return []string{"1", "x", "8", "17", "y", "z", "78", "113"}
+	return []string{"a", "5", "10", "b", "20", "c", "30", "d", "e"}
 }
